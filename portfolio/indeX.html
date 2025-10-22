@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — 青柳日陽</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">AH</div>
+                <div>
+                    <h1 class="site-title">青柳日陽</h1>
+                    <p class="role">HTML / CSS コーダー — 初心者から実務を目指して学習中</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="left">
+                <h2>あなたの想いをカタチにするコーディングを。</h2>
+                <p>HTML/CSSを中心に、正確で丁寧なコーディングを心がけています。まだ実務経験はありませんが、日々の学習と模写制作を通して確実にスキルを高めています。</p>
+                <div class="cta">
+                    <a class="btn" href="#projects">制作例を見る</a>
+                    <a class="btn secondary" href="#contact">連絡する</a>
+                </div>
+            </div>
+            <div class="avatar">AH</div>
+        </section>
+
+        <section id="projects">
+            <h2 style="margin-bottom:12px">Projects（練習作品）</h2>
+            <div class="projects">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/p1/800/400" alt="project screenshot">
+                    <h3>架空カフェサイト</h3>
+                    <p>デザイン模写をもとに作成。CSSグリッドを使ったレイアウトとスマホ対応を実装しました。</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                            class="tag">レスポンシブ</span></div>
+                    <div class="actions">
+                        <a class="link" href="cafe/index.html" target="_blank">詳細</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/p2/800/400" alt="project screenshot">
+                    <h3>LP（ランディングページ）</h3>
+                    <p>スクロールに合わせてコンテンツがフェードインするシンプルなLPを制作。</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS Animation</span></div>
+                    <div class="actions">
+                        <a class="link" href="beauty/index.html" target="_blank">詳細</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/p3/800/400" alt="project screenshot">
+                    <h3>このポートフォリオサイト</h3>
+                    <p>自分のスキルをまとめるために制作したポートフォリオサイトです。</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                            class="tag">UI</span></div>
+                    <div class="actions">
+                        <a class="link" href="#" data-title="ポートフォリオ"
+                            data-desc="HTMLとCSSだけで構成し、モバイルでも見やすい設計にしました。">詳細</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="about" style="margin-top:18px">
+            <div class="two-col">
+                <div class="about">
+                    <h2>About</h2>
+                    <p class="bio">
+                        はじめまして。HTML/CSSコーディングを中心に、丁寧でわかりやすい実装を心がけています。レスポンシブ対応、軽量なコード、BEM記法による保守性の高いCSSなど、基礎を大切にしたコーディングを行います。まだ実務経験はありませんが、学習を通して確実にスキルアップ中です。納期を守り、誠実な対応をお約束します。
+                    </p>
+                    <h3 style="margin-top:16px">Skills</h3>
+                    <ul style="color:var(--muted)">
+                        <li>Semantic HTML / BEM-like class naming</li>
+                        <li>Responsive CSS (flexbox, grid)</li>
+                        <li>Performance optimization</li>
+                        <li>Accessibility basics</li>
+                    </ul>
+                </div>
+
+                <aside class="contact-card" id="contact">
+                    <h3>Contact</h3>
+                    <p style="color:var(--muted);margin:0">お仕事のご依頼やご相談は、以下からお気軽にご連絡ください。</p>
+                    <a href="https://crowdworks.jp/public/employees/yourID" target="_blank">クラウドワークスプロフィール</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                </aside>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year">2025</span> 青柳日陽 • コーディングポートフォリオ
+        </footer>
+    </div>
+    <script>
+        document.querySelectorAll('.card .link[data-title]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                const title = btn.dataset.title || '詳細';
+                const desc = btn.dataset.desc || '';
+                document.getElementById('m-title').textContent = title;
+                document.getElementById('m-desc').textContent = desc;
+                document.getElementById('modal').classList.add('open');
+            })
+        })
+        document.getElementById('m-close').addEventListener('click', () => {
+            document.getElementById('modal').classList.remove('open');
+        })
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
